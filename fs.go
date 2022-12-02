@@ -747,9 +747,6 @@ func (r *fsSmallFileReader) Read(p []byte) (int, error) {
 }
 
 func (r *fsSmallFileReader) WriteTo(w io.Writer) (int64, error) {
-	if r.offset != 0 {
-		panic("BUG: no-zero offset! Read() mustn't be called before WriteTo()")
-	}
 	ff := r.ff
 
 	var n int
